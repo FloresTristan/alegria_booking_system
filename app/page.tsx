@@ -27,7 +27,7 @@ export default function Home() {
       </div>
 
       <div
-        className="w-full h-16"
+        className="hidden md:block w-full h-16"
       >
         <FloatingSectionDivider />
       </div>
