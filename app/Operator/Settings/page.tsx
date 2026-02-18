@@ -44,30 +44,30 @@ export default function ProfileSettingsPage() {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Top bar */}
-      <div className="border-b border-gray-200 bg-white px-6 py-3">
-        <h1 className="text-sm font-semibold text-gray-800">Profile Settings</h1>
+      <div className="border-b border-gray-200 bg-white px-6 py-4">
+        <h1 className="text-xl font-semibold text-gray-800">Profile Settings</h1>
       </div>
 
       {/* Content */}
-      <div className="px-6 py-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="px-25 py-10 ">
+        <div className="mx-auto max-w-auto">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             {/* Left card: Profile Information */}
             <form
               onSubmit={onSaveProfile}
-              className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+              className="rounded-4xl border border-gray-200 bg-white p-6 shadow-sm"
             >
-              <h2 className="text-center text-sm font-semibold text-gray-800">
+              <h2 className="text-center py-4 text-3xl font-bold text-gray-900">
                 Profile Information
               </h2>
 
-              <div className="mt-6">
-                <div className="text-xs font-bold text-gray-800">Photo</div>
+              <div className="mt-6 px-15 ">
+                <div className="text-2xl font-bold text-gray-600">Photo</div>
 
                 <div className="mt-3 flex flex-col items-start gap-2">
-                  <div className="relative h-18 w-18 overflow-hidden rounded-full bg-gray-200">
+                  <div className="relative h-30 w-30 overflow-hidden rounded-full bg-gray-200">
                     {photoPreview ? (
-                      // Using <img> here for blob preview; you can switch to <Image> if you prefer remote/static
+                      
                       <img
                         src={photoPreview}
                         alt="Profile preview"
@@ -76,8 +76,8 @@ export default function ProfileSettingsPage() {
                     ) : (
                       <div className="flex h-full w-full items-center justify-center">
                         <svg
-                          width="42"
-                          height="42"
+                          width="65"
+                          height="65"
                           viewBox="0 0 24 24"
                           fill="none"
                           className="text-gray-500"
@@ -94,7 +94,7 @@ export default function ProfileSettingsPage() {
                   <button
                     type="button"
                     onClick={onPickPhoto}
-                    className="text-xs text-blue-600 hover:underline"
+                    className="text-lg font-semibold text-blue-600 hover:underline"
                   >
                     Select a Photo
                   </button>
@@ -109,36 +109,36 @@ export default function ProfileSettingsPage() {
                 </div>
               </div>
 
-              <div className="mt-6 space-y-4">
+              <div className="mt-6 space-y-8 py-10 px-15">
                 <div>
-                  <label className="block text-xs font-medium text-gray-700">
+                  <label className="block pt-3  text-xl font-semibold text-gray-600">
                     Name
                   </label>
                   <input
                     value={profile.name}
                     onChange={(e) => setProfile((p) => ({ ...p, name: e.target.value }))}
                     type="text"
-                    className="mt-2 h-9 w-full rounded-md border border-gray-300 px-3 text-sm outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
+                    className="mt-3 h-12 w-full rounded-lg border text-gray-600 border-gray-400 px-5 text-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-700">
+                  <label className="block text-xl font-semibold text-gray-600">
                     Email
                   </label>
                   <input
                     value={profile.email}
                     onChange={(e) => setProfile((p) => ({ ...p, email: e.target.value }))}
                     type="email"
-                    className="mt-2 h-9 w-full rounded-md border border-gray-300 px-3 text-sm outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
+                    className="mt-3 h-12 w-full rounded-lg border text-gray-600 border-gray-400 px-3 text-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
                   />
                 </div>
               </div>
 
-              <div className="mt-10 flex justify-end">
+              <div className="mt-10 flex justify-end pt-5">
                 <button
                   type="submit"
-                  className="h-9 rounded-md bg-green-600 px-6 text-sm font-semibold text-white hover:bg-green-700 active:scale-[0.99]"
+                  className="h-12 rounded-2xl bg-green-600 px-13 text-sm font-semibold text-white hover:bg-green-700 active:scale-[0.99]"
                 >
                   Save
                 </button>
@@ -148,15 +148,15 @@ export default function ProfileSettingsPage() {
             {/* Right card: Update Password */}
             <form
               onSubmit={onSavePassword}
-              className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+              className="rounded-4xl border border-gray-200 bg-white p-6 shadow-sm"
             >
-              <h2 className="text-center text-sm font-semibold text-gray-800">
+              <h2 className="text-center py-4 h-[10%] text-3xl font-bold text-gray-900">
                 Update Password
               </h2>
 
-              <div className="mt-6 space-y-4">
+              <div className="pt-15 mt-6 space-y-10 h-[75%] px-10">
                 <div>
-                  <label className="block text-xs font-medium text-gray-700">
+                  <label className="block text-xl font-semibold text-gray-600">
                     Current Password
                   </label>
                   <input
@@ -165,12 +165,12 @@ export default function ProfileSettingsPage() {
                       setPasswords((p) => ({ ...p, currentPassword: e.target.value }))
                     }
                     type="password"
-                    className="mt-2 h-9 w-full rounded-md border border-gray-300 px-3 text-sm outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
+                    className="mt-3 h-12 w-full rounded-lg border text-gray-600 border-gray-400 px-3 text-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-700">
+                  <label className="block text-xl font-semibold text-gray-600">
                     New Password
                   </label>
                   <input
@@ -179,12 +179,12 @@ export default function ProfileSettingsPage() {
                       setPasswords((p) => ({ ...p, newPassword: e.target.value }))
                     }
                     type="password"
-                    className="mt-2 h-9 w-full rounded-md border border-gray-300 px-3 text-sm outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
+                    className="mt-3 h-12 w-full rounded-lg border text-gray-600 border-gray-400 px-3 text-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-700">
+                  <label className="block text-xl font-semibold text-gray-600">
                     Confirm Password
                   </label>
                   <input
@@ -193,15 +193,15 @@ export default function ProfileSettingsPage() {
                       setPasswords((p) => ({ ...p, confirmPassword: e.target.value }))
                     }
                     type="password"
-                    className="mt-2 h-9 w-full rounded-md border border-gray-300 px-3 text-sm outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
+                    className="mt-3 h-12 w-full rounded-lg border text-gray-600 border-gray-400 px-3 text-lg outline-none focus:border-green-600 focus:ring-2 focus:ring-green-200"
                   />
                 </div>
               </div>
 
-              <div className="mt-10 flex justify-end">
+              <div className="mt-10 flex  justify-end  h-[10%]">
                 <button
                   type="submit"
-                  className="h-9 rounded-md bg-green-600 px-6 text-sm font-semibold text-white hover:bg-green-700 active:scale-[0.99]"
+                  className="h-12 rounded-2xl bg-green-600 px-13 text-sm font-semibold text-white hover:bg-green-700 active:scale-[0.99]"
                 >
                   Save
                 </button>
